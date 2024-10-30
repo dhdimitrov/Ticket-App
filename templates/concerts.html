@@ -4,29 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Concerts in {{ region }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
         table {
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             width: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
         th, td {
-            border: 1px solid black;
-            padding: 8px;
+            padding: 15px;
             text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
     <h1>Предстоящи събития в {{ region }}</h1>
     <table>
-        <tr>
-            <th>Име</th>
-        </tr>
-        {% for concert in concerts %}
-        <tr>
-            <td>{{ concert.name }}</td>
-        </tr>
-        {% endfor %}
+        <thead>
+            <tr>
+                <th>Снимка</th>
+                <th>Име</th>
+                <th>Локация</th>
+                <th>Дата</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for concert in concerts %}
+            <tr>
+                <td><img src="{{ concert.image }}" alt="{{ concert.name }}"/></td>
+                <td>{{ concert.name }}</td>
+                <td>{{ concert.place }}</td>
+                <td>{{ concert.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </body>
 </html>
