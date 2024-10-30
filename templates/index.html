@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets App</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        #map {
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .region {
+            fill: #ccc;
+            stroke: #fff;
+            stroke-width: 1px;
+            cursor: pointer;
+        }
+        .region:hover {
+            fill: #999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Samo Lefski</h1>
+    <div id="map"></div>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+</body>
+</html>
