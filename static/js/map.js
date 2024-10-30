@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .attr('class', 'region')
             .attr('d', path)
             .on('click', function(event, d) {
-                alert('You clicked on ' + d.properties.name);
+                // Redirect to the concerts page for the clicked region
+                window.location.href = '/concerts/' + encodeURIComponent(d.properties.nuts3);
             });
     });
 });
